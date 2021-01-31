@@ -3,4 +3,10 @@ project(Family_Tree_Generator)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Family_Tree_Generator main.cpp)
+include_directories(src/include)
+
+set(SOURCES
+        src/main.cpp
+        src/Person.cpp)
+
+add_executable(Family_Tree_Generator ${SOURCES})
