@@ -2,7 +2,9 @@
 #define PERSON_HPP
 
 #include <memory>
-#include <map>
+#include <set>
+
+// Turns out Family trees are Direct Acyclic Graphs.
 
 class Person
 {
@@ -10,13 +12,21 @@ private:
     static int globalCount;
     int id;
 
-    std::map<int, std::weak_ptr<Person>> directDecedents;
-    std::map<int, std::weak_ptr<Person>> directAncestors;
+    std::set<std::weak_ptr<Person>> directDecedents;
+    std::set<std::weak_ptr<Person>> directAncestors;
 
 public:
     Person();
-    std::map<int, std::weak_ptr<Person>> getDirectDecedents();
-    std::map<int, std::weak_ptr<Person>> getDirectAncestors();
+    std::set<std::weak_ptr<Person>> getDirectDecedents();
+    std::set<std::weak_ptr<Person>> getDirectAncestors();
+
+    bool operator<(const Person &rhs) const;
+    bool operator>(const Person &rhs) const;
+    bool operator<=(const Person &rhs) const;
+    bool operator>=(const Person &rhs) const;
+    bool operator==(const Person &rhs) const;
+    bool operator!=(const Person &rhs) const;
+
 };
 
 
