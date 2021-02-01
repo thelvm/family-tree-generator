@@ -7,6 +7,7 @@ include_directories(src/include)
 
 set(SOURCES
         src/main.cpp
-        src/Person.cpp)
+        src/Person.cpp
+        src/FamilyTree.cpp)
 
 add_executable(Family_Tree_Generator ${SOURCES})

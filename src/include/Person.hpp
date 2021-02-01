@@ -15,6 +15,8 @@ private:
     std::set<std::weak_ptr<Person>> directDecedents;
     std::set<std::weak_ptr<Person>> directAncestors;
 
+    friend class FamilyTree;
+
 public:
     Person();
     std::set<std::weak_ptr<Person>> getDirectDecedents();
