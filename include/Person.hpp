@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <set>
+#include <utilities/time_systems/TimeSystem.hpp>
 
 // Turns out Family trees are Direct Acyclic Graphs.
 
@@ -14,6 +15,8 @@ private:
 
     std::set<std::weak_ptr<Person>> directDecedents;
     std::set<std::weak_ptr<Person>> directAncestors;
+
+    TimeSystem birthday;
 
     friend class FamilyTree;
 

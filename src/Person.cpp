@@ -1,5 +1,7 @@
 #include "Person.hpp"
 
+int Person::globalCount = 0;
+
 Person::Person()
 {
     id = ++globalCount;
@@ -17,7 +19,7 @@ std::set<std::weak_ptr<Person>> Person::getDirectAncestors()
 
 bool Person::operator<(const Person &rhs) const
 {
-    return id < rhs.id;
+    return birthday < rhs.birthday;
 }
 
 bool Person::operator>(const Person &rhs) const
