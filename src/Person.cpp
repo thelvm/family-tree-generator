@@ -1,20 +1,10 @@
 #include "Person.hpp"
 
-int Person::globalCount = 0;
+int Person::globalId = 0;
 
 Person::Person()
 {
-    id = ++globalCount;
-}
-
-std::set<std::weak_ptr<Person>> Person::getDirectDecedents()
-{
-    return directDecedents;
-}
-
-std::set<std::weak_ptr<Person>> Person::getDirectAncestors()
-{
-    return directAncestors;
+    id = ++globalId;
 }
 
 bool Person::operator<(const Person &rhs) const
