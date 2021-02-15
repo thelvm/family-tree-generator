@@ -10,6 +10,7 @@ set(SOURCES
         src/Person.cpp
 
         src/generators/PersonGenerator.cpp
+        src/generators/NameGenerator.cpp
 
         src/utilities/time_systems/TimeSystem.cpp
         src/utilities/time_systems/GalacticTimeSystem.cpp
