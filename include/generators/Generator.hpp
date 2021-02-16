@@ -15,11 +15,11 @@ protected:
 public:
     Generator() = delete;
     explicit Generator(seed_t initialSeed);
-    volatile T generate() = 0;
+    virtual T generate() = 0;
     [[maybe_unused]]
-    volatile std::set<T> generateMultiple() = 0;
+    virtual std::set<T> generateMultiple() = 0;
     [[maybe_unused]]
-    volatile std::set<T> generateMultipleSingleThread() = 0;
+    virtual std::set<T> generateMultipleSingleThread() = 0;
 };
 
 #endif //GENERATOR_HPP
