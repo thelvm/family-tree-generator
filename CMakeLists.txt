@@ -9,6 +9,7 @@ set(SOURCES
         src/main.cpp
         src/Person.cpp
 
+        src/generators/Generator.cpp
         src/generators/PersonGenerator.cpp
         src/generators/NameGenerator.cpp
 
