@@ -1,11 +1,13 @@
 #ifndef NAMEGENERATOR_HPP
 #define NAMEGENERATOR_HPP
 
+#include "Generator.hpp"
+
 #include <string>
 
-class NameGenerator {
+class NameGenerator : public Generator<std::string> {
 public:
-    std::string generateName();
+    std::shared_ptr<std::string> generate();
 };
 
 #endif //NAMEGENERATOR_HPP

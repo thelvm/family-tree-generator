@@ -3,6 +3,7 @@
 
 #include <random>
 #include <set>
+#include <memory>
 
 typedef int seed_t; // TODO Use custom class so other things (string, real noise) can be used to initialize a string
 
@@ -15,11 +16,11 @@ protected:
 public:
     Generator() = delete;
     explicit Generator(seed_t initialSeed);
-    virtual T generate() = 0;
+    virtual std::shared_ptr<T> generate() = 0;
     [[maybe_unused]]
-    virtual std::set<T> generateMultiple() = 0;
+    virtual std::set<std::shared_ptr<T>> generateMultiple() = 0;
     [[maybe_unused]]
-    virtual std::set<T> generateMultipleSingleThread() = 0;
+    virtual std::set<std::shared_ptr<T>> generateMultipleSingleThread() = 0;
 };
 
 #endif //GENERATOR_HPP

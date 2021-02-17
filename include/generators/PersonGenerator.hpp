@@ -2,13 +2,14 @@
 #define PERSONGENERATOR_HPP
 
 #include "Person.hpp"
+#include "Generator.hpp"
 
 #include <memory>
 
-class PersonGenerator
+class PersonGenerator: public Generator<Person>
 {
 public:
-    std::shared_ptr<Person> makeNewPerson();
+    std::shared_ptr<Person> generate();
 };
 
 #endif //PERSONGENERATOR_HPP

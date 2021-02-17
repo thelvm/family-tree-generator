@@ -2,8 +2,9 @@
 
 #include <random>
 #include <array>
+#include <functional>
 
-std::string NameGenerator::generateName()
+std::shared_ptr<std::string> NameGenerator::generate()
 {
 
     static const std::array<const char, 21> consonants = {
@@ -41,12 +42,13 @@ std::string NameGenerator::generateName()
     // Very simple naive first implementation
     std::string name;
 
+    std::mt19937 localRandom(seedGenerator());
     std::normal_distribution<> lengthDistribution(6, 0.2);
-    std::uniform_int_distribution<> letter(0, 26);
+    std::uniform_int_distribution<> firstLetterDistribution(0, 26);
 
-    // Use uniform dist to determine the first letter
+    // Use uniform dist to determine the first firstLetterDistribution
 
+    int firstLetterInt = [localRandom] { return localRandom(firstLetterDistribution); }
 
-
-    return name;
+    return std::make_shared<std::string>(name);
 }
